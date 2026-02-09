@@ -15,3 +15,5 @@ solve once → templatize → automate → reuse across customers.
 ### 1) Install
 ```bash
 npm install
+
+Trigger CI workflow!
