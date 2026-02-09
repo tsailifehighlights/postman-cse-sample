@@ -1,0 +1,16 @@
+{
+	"id": "da3231a6-7728-4722-a3f6-55eae49ea60d",
+	"name": "local-demo",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "https://jsonplaceholder.typicode.com",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-02-09T18:05:34.468Z",
+	"_postman_exported_using": "Postman/11.81.4"
+}

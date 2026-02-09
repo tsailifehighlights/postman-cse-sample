@@ -1,0 +1,188 @@
+{
+  "info": {
+    "_postman_id": "7f78dff5-573e-4897-83e8-b1eae584de45",
+    "name": "CSE Demo - JSONPlaceholder",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51805054",
+    "_collection_link": "https://go.postman.co/collection/51805054-7f78dff5-573e-4897-83e8-b1eae584de45?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET Posts",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response is JSON array\", function () {",
+              "  const jsonData = pm.response.json();",
+              "  pm.expect(jsonData).to.be.an(\"array\");",
+              "  pm.expect(jsonData.length).to.be.above(0);",
+              "});",
+              "",
+              "pm.test(\"Each item has required fields\", function () {",
+              "  const jsonData = pm.response.json();",
+              "  const first = jsonData[0];",
+              "  pm.expect(first).to.have.property(\"userId\");",
+              "  pm.expect(first).to.have.property(\"id\");",
+              "  pm.expect(first).to.have.property(\"title\");",
+              "  pm.expect(first).to.have.property(\"body\");",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response is JSON array\", function () {",
+              "  const jsonData = pm.response.json();",
+              "  pm.expect(jsonData).to.be.an(\"array\");",
+              "  pm.expect(jsonData.length).to.be.above(0);",
+              "});",
+              "",
+              "pm.test(\"Each item has required fields\", function () {",
+              "  const jsonData = pm.response.json();",
+              "  const first = jsonData[0];",
+              "  pm.expect(first).to.have.property(\"userId\");",
+              "  pm.expect(first).to.have.property(\"id\");",
+              "  pm.expect(first).to.have.property(\"title\");",
+              "  pm.expect(first).to.have.property(\"body\");",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/posts",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Post by ID",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Has correct id\", function () {",
+              "  const jsonData = pm.response.json();",
+              "  pm.expect(jsonData.id).to.eql(1);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Has correct id\", function () {",
+              "  const jsonData = pm.response.json();",
+              "  pm.expect(jsonData.id).to.eql(1);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/posts/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "posts",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Create Post",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201 or 200\", function () {",
+              "  pm.expect([200, 201]).to.include(pm.response.code);",
+              "});",
+              "",
+              "pm.test(\"Response has an id\", function () {",
+              "  const jsonData = pm.response.json();",
+              "  pm.expect(jsonData).to.have.property(\"id\");",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"hello\",\n  \"body\": \"world\",\n  \"userId\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/posts",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
