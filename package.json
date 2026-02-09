@@ -1,19 +1,17 @@
 {
   "name": "postman-cse-sample",
   "version": "1.0.0",
-  "description": "",
+  "description": "Learning NodeJS and Postman for Postman CSE Interview",
   "main": "index.js",
   "scripts": {
+    "sync": "node src/sync.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "dotenv": "^17.2.4"
-  },
-  "devDependencies": {
-    "newman": "^6.2.2"
   }
 }

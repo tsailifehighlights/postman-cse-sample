@@ -51,6 +51,8 @@ async function main() {
 
   // Write to output file
   const outPath = path.join("output", "posts_enriched.json");
+  // Ensure output directory exists
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, JSON.stringify(enrichedPosts, null, 2));
   console.log(`Done. Wrote ${enrichedPosts.length} records to ${outPath}`);
 }
